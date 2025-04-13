@@ -1,0 +1,94 @@
+.container {
+  background-color: white;
+  overflow: hidden; /* Asegura que el contenido no se desborde */
+  position: relative;
+}
+
+.container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: black;
+  transition: height 0.25s ease-in; /* Tiempo de transición más rápido para la salida */
+}
+
+.container:hover::after {
+  height: 100%;
+  transition: height 1s; /* Tiempo de transición más lento para la entrada */
+  animation: flash 0.5s alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: rgb(151, 148, 148);
+  }
+  100% {
+    background-color: rgb(0, 0, 0);
+  }
+}
+
+.image {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.info {
+  margin-top: 8px;
+  padding: 16px;
+}
+
+.container h1 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue';
+  font-weight: 300;
+  font-size: 10px;
+  color: rgba(121, 115, 109, 1);
+}
+.container:hover h1 {
+  color: rgb(204, 204, 204, 1);
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.container h2 {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue';
+  font-weight: 300;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 1);
+  text-transform: uppercase;
+}
+
+.container:hover h2 {
+  color: rgb(204, 204, 204, 1);
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.loader {
+  width: 324px;
+  height: 257px;
+  background: linear-gradient(90deg, #d6d6d6 20%, #ffffff 50%, #d6d6d6 80%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
