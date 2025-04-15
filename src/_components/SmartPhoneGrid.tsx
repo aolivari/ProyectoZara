@@ -7,6 +7,25 @@ interface SmartPhoneGridProps {
 }
 
 export const SmartPhoneGrid = ({ smartPhones }: SmartPhoneGridProps) => {
+  const [windowSize, setWindowSize] = React.useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  console.log('Current window size:', windowSize);
+
   return (
     <div
       style={{
