@@ -20,26 +20,17 @@
  * ```
  */
 import { SmartPhoneCard } from './SmartPhoneCard';
-import { SmartPhoneData, SmartPhoneDetails } from '../domain/projec';
-import styles from './SmartPhoneGrid.module.css';
-import { fetchSmartPhoneData } from '../services/SmartPhone';
-import { useQuery } from '@tanstack/react-query';
+import { SmartPhoneData } from '../domain/projec';
+import styles from '../CSS.modules/SmartPhoneGrid.module.css';
 
 interface SmartPhoneGridProps {
-  smartPhones: SmartPhoneDetails[];
+  smartPhones: SmartPhoneData[];
 }
 
 export const SmartPhoneGrid = ({ smartPhones }: SmartPhoneGridProps) => {
-  const { data: smartPhoneData } = useQuery({
-    queryKey: ['smartphoneDatas'],
-    queryFn: () => fetchSmartPhoneData({ path: 'products' }),
-  });
-
-  const arrayOfPhones: SmartPhoneData[] = smartPhoneData?.slice(0, 20) ?? [];
-
   return (
     <div role="grid" className={styles.gridContainer}>
-      {arrayOfPhones.map((smartphone, index) => (
+      {smartPhones.map((smartphone, index) => (
         <SmartPhoneCard
           key={index}
           brand={smartphone.brand}

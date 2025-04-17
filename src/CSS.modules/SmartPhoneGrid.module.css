@@ -1,6 +1,7 @@
 .gridContainer {
   display: grid;
   gap: 0px;
+  padding: 0px 48px 0px 48px;
 
   /* Estilos para el contenedor de la cuadrícula */
 }

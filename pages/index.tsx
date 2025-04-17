@@ -1,7 +1,8 @@
 import { NavBar } from '../src/_components/NavBar';
-import { PageModule } from './pageModule';
+
 import { BagProvider } from '../src/context/BagContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { SmartPhonesList } from '../src/views/SmartPhonesList';
 
 const queryClient = new QueryClient();
 
@@ -12,7 +13,7 @@ const Home = () => {
         {/* Tu aplicación */}
         <BagProvider>
           <NavBar />
-          <PageModule />
+          <SmartPhonesList />
         </BagProvider>
       </QueryClientProvider>
     </>

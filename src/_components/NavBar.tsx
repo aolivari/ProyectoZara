@@ -14,7 +14,7 @@ export const NavBar = () => {
         justifyContent: 'space-between',
       }}
     >
-      <Image
+      <img
         src={'/images/home_button.png'}
         style={{ cursor: 'pointer' }}
         width={74}
@@ -25,7 +25,7 @@ export const NavBar = () => {
         }}
       />
       <div style={{ display: 'flex', gap: '6px', alignItems: 'baseline' }}>
-        <Image
+        <img
           src={'/images/bag_icon.png'}
           style={{ cursor: 'pointer' }}
           width={18}

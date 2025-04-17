@@ -41,10 +41,9 @@ jest.mock('next/image', () => ({
       React.ImgHTMLAttributes<HTMLImageElement>
   ) => {
     // Excluye la propiedad `onLoadingComplete` del elemento <img>
-    const { onLoadingComplete, priority, ...rest } =
+    const { onLoadingComplete, ...rest } =
       props as React.ImgHTMLAttributes<HTMLImageElement> & {
         onLoadingComplete?: (img: HTMLImageElement) => void;
-        priority?: boolean | undefined;
       };
     return (
       <img

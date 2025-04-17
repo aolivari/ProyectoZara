@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from './SmarPhoneCard.module.css';
-import Image from 'next/image';
+import styles from '../CSS.modules/SmarPhoneCard.module.css';
 import { useRouter } from 'next/router';
 
 interface SmartPhoneCardProps {
@@ -37,7 +36,6 @@ export const SmartPhoneCard = ({
   name,
   price,
 }: SmartPhoneCardProps) => {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
   const router = useRouter();
 
   const handleClick = () => {
@@ -46,44 +44,25 @@ export const SmartPhoneCard = ({
 
   return (
     <>
-      {!isImageLoaded && (
-        <div className={styles.loader}>
-          <Image
-            layout="intrinsic"
-            style={{ display: 'none' }}
+      <div className={styles.container}>
+        <div className={styles.imageContainer}>
+          <img
             src={imageSrc}
+            height={300}
             alt={`${brand} ${name}`}
             className={styles.image}
-            width={120}
-            height={120}
-            priority={true}
-            onLoadingComplete={() => setIsImageLoaded(true)} // Detecta cuando la imagen está cargada
+            onClick={handleClick}
+            {...{ fetchpriority: 'high' }}
           />
         </div>
-      )}
-      {isImageLoaded && (
-        <div className={styles.container}>
-          <div className={styles.imageContainer}>
-            <Image
-              layout="intrinsic"
-              src={imageSrc}
-              alt={`${brand} ${name}`}
-              className={styles.image}
-              width={200} // Ancho fijo para todas las imágenes
-              height={10}
-              onClick={handleClick}
-              onLoadingComplete={() => setIsImageLoaded(true)}
-            />
-          </div>
-          <div className={styles.info}>
-            <h1>{brand}</h1>
-            <div className={styles.description}>
-              <h2>{name}</h2>
-              <h2>{price}</h2>
-            </div>
+        <div className={styles.info}>
+          <h1>{brand}</h1>
+          <div className={styles.description}>
+            <h2>{name}</h2>
+            <h2>{price} EUR</h2>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
