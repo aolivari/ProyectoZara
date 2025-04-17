@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 export const SearchBar = () => {
   const [resultsCount, setResultsCount] = useState(0);
 
+  //to do crear los llamado a la base de datos para obtener el total de resultados
+
   return (
     <div
       role="search"
