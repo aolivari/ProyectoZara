@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SmarPhoneCard.module.css';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 interface SmartPhoneCardProps {
   brand: string;
@@ -37,6 +38,11 @@ export const SmartPhoneCard = ({
   price,
 }: SmartPhoneCardProps) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/details/${name}`);
+  };
 
   return (
     <>
@@ -63,6 +69,7 @@ export const SmartPhoneCard = ({
               className={styles.image}
               width={312}
               height={257}
+              onClick={handleClick} // Cambia a router.push
             />
           </div>
 
