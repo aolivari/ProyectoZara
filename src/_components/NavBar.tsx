@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import router from 'next/router';
 
 export const NavBar = () => {
   //icono que mande al home de la app
@@ -20,7 +21,7 @@ export const NavBar = () => {
         height={29}
         alt={'home'}
         onClick={() => {
-          window.location.href = '/';
+          router.push(`/`);
         }}
       />
       <div style={{ display: 'flex', gap: '6px', alignItems: 'baseline' }}>
