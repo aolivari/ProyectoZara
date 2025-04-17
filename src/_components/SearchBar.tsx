@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './SearchBar.module.css';
 
 export const SearchBar = () => {
   const [resultsCount, setResultsCount] = useState(0);
@@ -6,44 +7,14 @@ export const SearchBar = () => {
   //to do crear los llamado a la base de datos para obtener el total de resultados
 
   return (
-    <div
-      role="search"
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '60px 48px 40px 48px',
-      }}
-    >
+    <div role="search" className={styles.searchBar}>
       <input
         type="text"
         placeholder="Search for a smartphone..."
         className="searchBar"
-        style={{
-          fontFamily: 'Helvetica',
-          width: '100%',
-          border: 'none',
-          borderBottom: '1px solid #ccc',
-          outline: 'none',
-          fontSize: '16px',
-          fontWeight: '300',
-        }}
       />
-      <div
-        style={{
-          width: '100%',
-          textAlign: 'left',
-          fontFamily: 'Helvetica',
-          fontWeight: 300,
-          fontSize: '12px',
-          lineHeight: '100%',
-          letterSpacing: '0%',
-          textTransform: 'uppercase',
-          color: '#000001',
-        }}
-      >
-        <p>{resultsCount} results</p>
-      </div>
+
+      <p>{resultsCount} results</p>
     </div>
   );
 };

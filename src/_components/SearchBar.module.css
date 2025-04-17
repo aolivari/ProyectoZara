@@ -5,7 +5,7 @@
   padding: 60px 48px 40px 48px;
 }
 
-.searchBar.input {
+.searchBar input {
   font-family: Helvetica;
   width: 100%;
   border: none;
@@ -15,7 +15,7 @@
   font-weight: 300;
 }
 
-.searchBar.p {
+.searchBar p {
   width: 100%;
   text-align: left;
   font-family: Helvetica;
