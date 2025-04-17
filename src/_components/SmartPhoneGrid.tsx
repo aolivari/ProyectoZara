@@ -30,7 +30,7 @@ interface SmartPhoneGridProps {
 
 export const SmartPhoneGrid = ({ smartPhones }: SmartPhoneGridProps) => {
   return (
-    <div className={styles.gridContainer}>
+    <div role="grid" className={styles.gridContainer}>
       {smartPhones.map((smartphone, index) => (
         <SmartPhoneCard
           key={index}
