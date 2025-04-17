@@ -49,30 +49,32 @@ export const SmartPhoneCard = ({
       {!isImageLoaded && (
         <div className={styles.loader}>
           <Image
+            layout="intrinsic"
             style={{ display: 'none' }}
             src={imageSrc}
             alt={`${brand} ${name}`}
             className={styles.image}
-            width={312}
-            height={257}
-            priority={true} // Carga la imagen de inmediato
+            width={120}
+            height={120}
+            priority={true}
             onLoadingComplete={() => setIsImageLoaded(true)} // Detecta cuando la imagen está cargada
           />
         </div>
       )}
       {isImageLoaded && (
         <div className={styles.container}>
-          <div className={styles.image}>
+          <div className={styles.imageContainer}>
             <Image
+              layout="intrinsic"
               src={imageSrc}
               alt={`${brand} ${name}`}
               className={styles.image}
-              width={312}
-              height={257}
-              onClick={handleClick} // Cambia a router.push
+              width={200} // Ancho fijo para todas las imágenes
+              height={10}
+              onClick={handleClick}
+              onLoadingComplete={() => setIsImageLoaded(true)}
             />
           </div>
-
           <div className={styles.info}>
             <h1>{brand}</h1>
             <div className={styles.description}>

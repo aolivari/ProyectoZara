@@ -4,3 +4,11 @@ export interface SmartPhoneDetails {
   price: number;
   imageSrc: string;
 }
+
+export interface SmartPhoneData {
+  id: string;
+  brand: string;
+  name: string;
+  basePrice: number;
+  imageUrl: string;
+}

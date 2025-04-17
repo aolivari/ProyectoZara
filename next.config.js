@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['prueba-tecnica-api-tienda-moviles.onrender.com'],
     loader: 'default',
   },
 };

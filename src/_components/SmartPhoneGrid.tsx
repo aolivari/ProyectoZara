@@ -19,25 +19,33 @@
  * <SmartPhoneGrid smartPhones={smartPhones} />;
  * ```
  */
-import React from 'react';
 import { SmartPhoneCard } from './SmartPhoneCard';
-import { SmartPhoneDetails } from '../domain/projec';
+import { SmartPhoneData, SmartPhoneDetails } from '../domain/projec';
 import styles from './SmartPhoneGrid.module.css';
+import { fetchSmartPhoneData } from '../services/SmartPhone';
+import { useQuery } from '@tanstack/react-query';
 
 interface SmartPhoneGridProps {
   smartPhones: SmartPhoneDetails[];
 }
 
 export const SmartPhoneGrid = ({ smartPhones }: SmartPhoneGridProps) => {
+  const { data: smartPhoneData } = useQuery({
+    queryKey: ['smartphoneDatas'],
+    queryFn: () => fetchSmartPhoneData({ path: 'products' }),
+  });
+
+  const arrayOfPhones: SmartPhoneData[] = smartPhoneData?.slice(0, 20) ?? [];
+
   return (
     <div role="grid" className={styles.gridContainer}>
-      {smartPhones.map((smartphone, index) => (
+      {arrayOfPhones.map((smartphone, index) => (
         <SmartPhoneCard
           key={index}
-          brand="Samnsung"
-          imageSrc="/images/Image.png"
-          name="blue"
-          price="1450"
+          brand={smartphone.brand}
+          imageSrc={smartphone.imageUrl}
+          name={smartphone.name}
+          price={smartphone.basePrice.toString()}
         />
       ))}
     </div>
