@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Header from '../src/_components/Header';
 import styles from '../styles/Home.module.css';
 import { SmartPhoneCard } from '../src/_components/SmartPhoneCard';
+import { SmartPhoneGrid } from '../src/_components/SmartPhoneGrid';
 
 const Home = () => {
   return (
@@ -11,6 +12,46 @@ const Home = () => {
         <meta name="description" content="Bienvenido a mi proyecto Next.js" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <SmartPhoneGrid
+        smartPhones={[
+          {
+            brand: 'sammsug',
+            model: 'blue',
+            price: 1450,
+            imageSrc: '/images/Image.png',
+          },
+          {
+            brand: 'sammsug',
+            model: 'blue',
+            price: 1450,
+            imageSrc: '/images/Image.png',
+          },
+          {
+            brand: 'sammsug',
+            model: 'blue',
+            price: 1450,
+            imageSrc: '/images/Image.png',
+          },
+          {
+            brand: 'sammsug',
+            model: 'blue',
+            price: 1450,
+            imageSrc: '/images/Image.png',
+          },
+          {
+            brand: 'sammsug',
+            model: 'blue',
+            price: 1450,
+            imageSrc: '/images/Image.png',
+          },
+          {
+            brand: 'sammsug',
+            model: 'blue',
+            price: 1450,
+            imageSrc: '/images/Image.png',
+          },
+        ]}
+      />
       <SmartPhoneCard
         brand="sammsug"
         name="blue"
