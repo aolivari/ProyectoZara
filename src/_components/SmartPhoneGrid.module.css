@@ -1,0 +1,24 @@
+.gridContainer {
+  display: grid;
+  gap: 0px;
+
+  /* Estilos para el contenedor de la cuadrícula */
+}
+
+@media (min-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas para escritorio */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas para tablet */
+  }
+}
+
+@media (max-width: 767px) {
+  .gridContainer {
+    grid-template-columns: repeat(1, 1fr); /* 1 columna para móvil */
+  }
+}

@@ -2,6 +2,7 @@
   background-color: white;
   overflow: hidden; /* Asegura que el contenido no se desborde */
   position: relative;
+  border: 1px solid #ccc;
 }
 
 .container::after {
