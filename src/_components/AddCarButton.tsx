@@ -9,6 +9,7 @@ import {
 
 import styles from '../CSS.modules/AddCarButton.module.css';
 import { useBag } from '../context/BagContext';
+import { Button } from './Button';
 
 interface AddCarButtonProps {
   data: SmartPhoneDetailsResponse;
@@ -64,13 +65,12 @@ export const AddCarButton = ({
 
   return (
     <div className={styles.container}>
-      <button
-        onClick={handleAddToBag}
+      <Button
+        onClick={() => handleAddToBag()}
         disabled={!buttonEnabled}
-        className={buttonEnabled ? styles.buttonEnabled : styles.buttonDisabled}
-      >
-        <p className={styles.buttonText}>añadir</p>
-      </button>
+        variant={'primary'}
+        text="añadir"
+      />
     </div>
   );
 };

@@ -1,22 +1,19 @@
 import React from 'react';
-import Image from 'next/image';
 import router from 'next/router';
+import { useBag } from '../context/BagContext';
+import styles from '../CSS.modules/NavBar.module.css';
 
-export const NavBar = () => {
-  //icono que mande al home de la app
-  //carro de compras
+interface NavBarProps {
+  showCar?: boolean;
+}
+export const NavBar = ({ showCar = true }: NavBarProps) => {
+  const { items } = useBag();
 
   return (
-    <div
-      style={{
-        padding: '28px 48px',
-        display: 'flex',
-        justifyContent: 'space-between',
-      }}
-    >
+    <div className={styles.navBar}>
       <img
         src={'/images/home_button.png'}
-        style={{ cursor: 'pointer' }}
+        className={styles.homeButton}
         width={74}
         height={29}
         alt={'home'}
@@ -24,29 +21,23 @@ export const NavBar = () => {
           router.push(`/`);
         }}
       />
-      <div style={{ display: 'flex', gap: '6px', alignItems: 'baseline' }}>
-        <img
-          src={'/images/bag_icon.png'}
-          style={{ cursor: 'pointer' }}
-          width={18}
-          height={18}
-          alt={'bag'}
-        />
-        <p
-          style={{
-            margin: 0,
-            padding: 0,
-            fontFamily: 'Helvetica',
-            fontWeight: 300,
-            fontSize: '16px',
-            lineHeight: '16px',
-            letterSpacing: '0%',
-            textTransform: 'uppercase',
-          }}
-        >
-          0
-        </p>
-      </div>
+      {showCar && (
+        <div className={styles.bagContainer}>
+          <img
+            src={'/images/bag_icon.png'}
+            className={styles.bagIcon}
+            width={18}
+            height={18}
+            alt={'bag'}
+            onClick={() => {
+              items.length === 0
+                ? alert('Your bag is empty!')
+                : router.push(`/cart`);
+            }}
+          />
+          <p className={styles.bagCount}>{items.length}</p>
+        </div>
+      )}
     </div>
   );
 };

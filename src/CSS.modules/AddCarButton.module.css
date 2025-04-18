@@ -1,33 +1,3 @@
-.buttonDisabled {
-  height: 56px;
-  padding-top: 5px;
-  padding-right: 7px;
-  padding-bottom: 5px;
-  padding-left: 7px;
-  background: rgba(243, 242, 242, 1);
-  width: 100%;
-  color: rgba(194, 191, 188, 1);
-  border-color: transparent;
-}
-
-.buttonEnabled {
-  height: 56px;
-  padding-top: 5px;
-  padding-right: 7px;
-  padding-bottom: 5px;
-  padding-left: 7px;
-  background: rgba(27, 26, 24, 1);
-  width: 100%;
-  color: rgba(255, 255, 255, 1);
-}
-
 .container {
   padding-top: 64px;
-}
-
-.buttonText {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 300;
-  text-transform: uppercase;
 }
