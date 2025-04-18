@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  overflow-x: auto;
+  cursor: grab;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  gap: 0;
+}
+
+.cards {
+  flex: 0 0 auto;
+}
+
+.header {
+  font-family: 'Helvetica Neue';
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  padding-top: 154px;
+  color: rgba(0, 0, 0, 1);
+}

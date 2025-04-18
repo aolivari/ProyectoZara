@@ -4,6 +4,9 @@
   position: relative;
   border: 1px solid #ccc;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .container::after {
@@ -37,7 +40,6 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 344px;
 }
 
 .image {

@@ -1,34 +1,115 @@
-import React from 'react';
+import React, { use, useEffect, useState, useRef } from 'react';
 import { NavBar } from './NavBar'; // Adjust the path if necessary
 import router from 'next/router';
+import { SmartPhoneDetailsResponse } from '../domain/projec';
+import { ImageFadeInOut } from './ImageFadeInOut';
+import { SmartPhoneInfo } from './SmartPhoneInfo';
+import { AddCarButton } from './AddCarButton';
+import { SmartPhoneSpecs } from './SmartPhoneSpecs';
+import { BackButton } from './BackButton';
+import { SimilarItems } from './SimilarItems';
 
-export const SmartPhoneDetails = () => {
+interface SmartPhoneDetailsProps {
+  data: SmartPhoneDetailsResponse;
+}
+
+export const SmartPhoneDetails = ({ data }: SmartPhoneDetailsProps) => {
+  const [colorOptions, setColorOptions] = useState(data.colorOptions[0]);
+  const [price, setPrice] = useState<string>();
+  const [selectedStorage, setSelectedStorage] = useState<number>();
+  const [paddingInfo, setPaddingInfo] = useState<number>(105);
+  const smartPhoneInfoRef = useRef<HTMLDivElement>(null);
+
+  const fromPrice = data.storageOptions.sort((a, b) => a.price - b.price)[0]
+    .price;
+  const storages = data.storageOptions.map((storage) => storage.capacity);
+
+  useEffect(() => {
+    setColorOptions(data.colorOptions[0]);
+    setPrice(`from ${fromPrice} EUR`);
+  }, [data]);
+
+  useEffect(() => {
+    if (smartPhoneInfoRef.current) {
+      const dimensions = smartPhoneInfoRef.current.getBoundingClientRect();
+      setPaddingInfo(dimensions.width + 500);
+    }
+  }, []);
+
+  const handleColorOptions = (index: number) => {
+    setColorOptions(data.colorOptions[index]);
+  };
+
+  const handleStorageOptions = (index: number) => {
+    setPrice(`${data.storageOptions[index].price.toString()} EUR`);
+    setSelectedStorage(index);
+  };
+
+  console.log(data);
+
   return (
     <div>
       <NavBar />
-      <div
-        style={{ cursor: 'pointer', paddingLeft: 48 }}
-        onClick={() => router.push(`/`)}
-      >
-        boton back
-      </div>
+      <BackButton />
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
           paddingTop: 110,
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 154,
+          paddingLeft: 48,
+          paddingRight: 48,
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 310 }}>
-          <div>SmartPhone image</div>
-          <div>SmartPhone rightData</div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+            width: '100%',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'flex-start',
+              maxWidth: 500,
+            }}
+          >
+            <ImageFadeInOut src={colorOptions.imageUrl} />
+          </div>
+          <div ref={smartPhoneInfoRef}>
+            <SmartPhoneInfo
+              selectedStorage={selectedStorage}
+              handleStorageOptions={(i) => handleStorageOptions(i)}
+              colorOptions={data.colorOptions}
+              price={price as string}
+              handleColorOptions={handleColorOptions}
+              name={data.name}
+              storages={storages}
+            />
+          </div>
         </div>
-
-        <div>SmartPhone specifications</div>
-        <div>similarItems</div>
+        <div
+          style={{
+            marginTop: 24, // Espaciado entre las filas
+            width: '100%',
+          }}
+        >
+          <div
+            style={{
+              width: '100%',
+              paddingLeft: `calc((100vw - ${paddingInfo}px) / 3.2)`,
+              paddingRight: `calc((100vw - ${paddingInfo}px) / 3.2)`,
+              paddingTop: 154,
+            }}
+          >
+            <SmartPhoneSpecs
+              brand={data.brand}
+              description={data.description}
+              name={data.name}
+              specs={data.specs}
+            />
+            <SimilarItems smartPhones={data.similarProducts} />
+          </div>
+        </div>
       </div>
     </div>
   );

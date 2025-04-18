@@ -25,18 +25,29 @@ import styles from '../CSS.modules/SmartPhoneGrid.module.css';
 
 interface SmartPhoneGridProps {
   smartPhones: SmartPhoneData[];
+  grid?: number;
+  imageHeight?: number;
 }
 
-export const SmartPhoneGrid = ({ smartPhones }: SmartPhoneGridProps) => {
+export const SmartPhoneGrid = ({
+  smartPhones,
+  grid,
+  imageHeight,
+}: SmartPhoneGridProps) => {
   return (
-    <div role="grid" className={styles.gridContainer}>
+    <div
+      role="grid"
+      className={grid ? styles.gridContainerPersonalized : styles.gridContainer}
+    >
       {smartPhones.map((smartphone, index) => (
         <SmartPhoneCard
+          id={smartphone.id}
           key={index}
           brand={smartphone.brand}
           imageSrc={smartphone.imageUrl}
           name={smartphone.name}
           price={smartphone.basePrice.toString()}
+          imageHeight={imageHeight}
         />
       ))}
     </div>

@@ -12,3 +12,38 @@ export interface SmartPhoneData {
   basePrice: number;
   imageUrl: string;
 }
+
+export interface SmartPhoneDetailsResponse {
+  id: string;
+  brand: string;
+  name: string;
+  description: string;
+  basePrice: number;
+  rating: number;
+  specs: Specs;
+  colorOptions: ColorOptions[];
+  storageOptions: StorageOptions[];
+  similarProducts: SmartPhoneData[];
+}
+
+export interface StorageOptions {
+  capacity: string;
+  price: number;
+}
+
+export interface ColorOptions {
+  name: string;
+  hexCode: string;
+  imageUrl: string;
+}
+
+export interface Specs {
+  screen: string;
+  resolution: string;
+  processor: string;
+  mainCamera: string;
+  selfieCamera: string;
+  battery: string;
+  os: string;
+  screenRefreshRate: string;
+}

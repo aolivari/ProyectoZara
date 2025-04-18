@@ -7,6 +7,8 @@ interface SmartPhoneCardProps {
   name: string;
   price: string;
   imageSrc: string;
+  id: string;
+  imageHeight?: number;
 }
 
 /**
@@ -19,6 +21,7 @@ interface SmartPhoneCardProps {
  * @param {string} props.imageSrc - La URL de la imagen del smartphone.
  * @param {string} props.name - El nombre o modelo del smartphone.
  * @param {string | number} props.price - El precio del smartphone.
+ * @param {string} props.id - El id del smartphone.
  *
  * @returns {JSX.Element} Un elemento JSX que representa la tarjeta del smartphone.
  *
@@ -31,15 +34,19 @@ interface SmartPhoneCardProps {
  * />
  */
 export const SmartPhoneCard = ({
+  id,
   brand,
   imageSrc,
   name,
   price,
+  imageHeight = 300,
 }: SmartPhoneCardProps) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/details/${name}`);
+    //codificar name para evitar problemas con caracteres especiales en la URL,
+    const encodedName = encodeURIComponent(id);
+    router.push(`/details/${encodedName}`);
   };
 
   return (
@@ -48,7 +55,7 @@ export const SmartPhoneCard = ({
         <div className={styles.imageContainer}>
           <img
             src={imageSrc}
-            height={300}
+            height={imageHeight}
             alt={`${brand} ${name}`}
             className={styles.image}
             onClick={handleClick}

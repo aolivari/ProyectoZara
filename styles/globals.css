@@ -35,3 +35,10 @@ ul {
 button {
   cursor: pointer;
 }
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeue-Light.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchSmartPhoneData } from '../services/apiSmartPhone';
+import { apiSmartPhone } from '../services/apiSmartPhone';
 import { useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash/debounce';
 
@@ -28,8 +28,12 @@ export const useGetSmartPhoneList = (path: string) => {
   }, [searchData, debouncedSetSearchData]);
 
   const { data: smartPhoneData } = useQuery({
-    queryKey: ['smartphoneDatas', debouncedSearchData],
-    queryFn: () => fetchSmartPhoneData({ path: path, search: searchData }),
+    queryKey: ['smartphoneData-list', debouncedSearchData],
+    queryFn: () =>
+      apiSmartPhone.fetchSmartPhoneDataList({
+        path: path,
+        search: searchData,
+      }),
   });
 
   return { smartPhoneData: smartPhoneData, setSearchData, searchData };

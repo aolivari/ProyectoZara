@@ -11,7 +11,7 @@ export const SmartPhonesList = () => {
         onSearch={setSearchData}
         resultsCount={smartPhoneData?.length.toString() ?? '0'}
       />
-      <div>
+      <div style={{ marginBottom: 473 }}>
         <SmartPhoneGrid smartPhones={smartPhoneData ?? []} />
       </div>
     </>
