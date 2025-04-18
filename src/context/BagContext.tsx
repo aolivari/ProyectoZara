@@ -5,10 +5,11 @@ import React, {
   ReactNode,
   useEffect,
 } from 'react';
+import { ShoppingBagItem } from '../domain/projec';
 
 interface BagContextProps {
-  items: any[];
-  addItem: (item: any) => void;
+  items: ShoppingBagItem[];
+  addItem: (item: ShoppingBagItem) => void;
   removeItem: (id: string) => void;
   clearBag: () => void;
 }
@@ -18,14 +19,11 @@ const BagContext = createContext<BagContextProps | undefined>(undefined);
 export const BagProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [items, setItems] = useState<any[]>([]);
+  const [items, setItems] = useState<ShoppingBagItem[]>([]);
 
-  const addItem = (item: any) => {
-    setItems((prevItems) => {
-      const updatedItems = [...prevItems, item];
-      localStorage.setItem('bagItems', JSON.stringify(updatedItems));
-      return updatedItems;
-    });
+  const addItem = (item: ShoppingBagItem) => {
+    setItems((prevItems) => [...prevItems, item]);
+    localStorage.setItem('bagItems', JSON.stringify([...items, item]));
   };
 
   // Initialize items from localStorage on component mount
@@ -35,11 +33,14 @@ export const BagProvider: React.FC<{ children: ReactNode }> = ({
   }, []);
 
   const removeItem = (id: string) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    const updatedItems = items.filter((item) => item.id !== id);
+    setItems(updatedItems);
+    localStorage.setItem('bagItems', JSON.stringify(updatedItems));
   };
 
   const clearBag = () => {
     setItems([]);
+    localStorage.removeItem('bagItems');
   };
 
   return (

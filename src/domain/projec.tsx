@@ -47,3 +47,13 @@ export interface Specs {
   os: string;
   screenRefreshRate: string;
 }
+
+export interface ShoppingBagItem {
+  model: string;
+  brand: string;
+  price: number;
+  imageSrc: string;
+  color: string;
+  id: string;
+  storage: string;
+}

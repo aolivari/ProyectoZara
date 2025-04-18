@@ -7,6 +7,32 @@ interface SimilarItemsProps {
   smartPhones: SmartPhoneData[];
 }
 
+/**
+ * A React functional component that displays a horizontally scrollable list of similar items (smartphones).
+ * The list can be scrolled by dragging with the mouse.
+ *
+ * @param {SimilarItemsProps} props - The props for the component.
+ * @param {Array} props.smartPhones - An array of smartphone objects to be displayed in the list.
+ *
+ * @returns {JSX.Element} The rendered component.
+ *
+ * @remarks
+ * - The component uses a `useRef` hook to reference the scrollable container.
+ * - Mouse events (`onMouseDown`, `onMouseMove`, `onMouseUp`, and `onMouseLeave`) are used to implement drag-to-scroll functionality.
+ * - The `handleMouseDown` function initializes the dragging state and stores the starting position and scroll offset.
+ * - The `handleMouseMove` function calculates the scroll position based on the drag distance and updates the container's scroll position.
+ * - The `handleMouseUpOrLeave` function resets the dragging state when the mouse is released or leaves the container.
+ *
+ * @example
+ * ```tsx
+ * const smartphones = [
+ *   { id: 1, brand: 'Brand A', name: 'Model X', imageUrl: '/path/to/image.jpg', basePrice: 999 },
+ *   { id: 2, brand: 'Brand B', name: 'Model Y', imageUrl: '/path/to/image2.jpg', basePrice: 799 },
+ * ];
+ *
+ * <SimilarItems smartPhones={smartphones} />
+ * ```
+ */
 export const SimilarItems = ({ smartPhones }: SimilarItemsProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   let isDragging = false;

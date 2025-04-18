@@ -1,7 +1,7 @@
 import React, { use, useEffect, useState, useRef } from 'react';
 import { NavBar } from './NavBar'; // Adjust the path if necessary
 import router from 'next/router';
-import { SmartPhoneDetailsResponse } from '../domain/projec';
+import { SmartPhoneDetailsResponse, StorageOptions } from '../domain/projec';
 import { ImageFadeInOut } from './ImageFadeInOut';
 import { SmartPhoneInfo } from './SmartPhoneInfo';
 import { AddCarButton } from './AddCarButton';
@@ -16,7 +16,7 @@ interface SmartPhoneDetailsProps {
 export const SmartPhoneDetails = ({ data }: SmartPhoneDetailsProps) => {
   const [colorOptions, setColorOptions] = useState(data.colorOptions[0]);
   const [price, setPrice] = useState<string>();
-  const [selectedStorage, setSelectedStorage] = useState<number>();
+  const [selectedStorage, setSelectedStorage] = useState<StorageOptions>();
   const [paddingInfo, setPaddingInfo] = useState<number>(105);
   const smartPhoneInfoRef = useRef<HTMLDivElement>(null);
 
@@ -42,7 +42,7 @@ export const SmartPhoneDetails = ({ data }: SmartPhoneDetailsProps) => {
 
   const handleStorageOptions = (index: number) => {
     setPrice(`${data.storageOptions[index].price.toString()} EUR`);
-    setSelectedStorage(index);
+    setSelectedStorage(data.storageOptions[index]);
   };
 
   console.log(data);
@@ -77,13 +77,20 @@ export const SmartPhoneDetails = ({ data }: SmartPhoneDetailsProps) => {
           </div>
           <div ref={smartPhoneInfoRef}>
             <SmartPhoneInfo
-              selectedStorage={selectedStorage}
+              selectedStorage={storages.findIndex(
+                (storage) => storage === selectedStorage?.capacity
+              )}
               handleStorageOptions={(i) => handleStorageOptions(i)}
               colorOptions={data.colorOptions}
               price={price as string}
               handleColorOptions={handleColorOptions}
               name={data.name}
               storages={storages}
+            />
+            <AddCarButton
+              data={data}
+              colorOptions={colorOptions}
+              storageOptions={selectedStorage as StorageOptions}
             />
           </div>
         </div>
