@@ -8,6 +8,7 @@ import { AddCarButton } from './AddCarButton';
 import { SmartPhoneSpecs } from './SmartPhoneSpecs';
 import { BackButton } from './BackButton';
 import { SimilarItems } from './SimilarItems';
+import styles from '../CSS.modules/SmartPhoneDetails.module.css';
 
 interface SmartPhoneDetailsProps {
   data: SmartPhoneDetailsResponse;
@@ -45,34 +46,13 @@ export const SmartPhoneDetails = ({ data }: SmartPhoneDetailsProps) => {
     setSelectedStorage(data.storageOptions[index]);
   };
 
-  console.log(data);
-
   return (
     <div>
       <NavBar />
       <BackButton />
-      <div
-        style={{
-          paddingTop: 110,
-          paddingLeft: 48,
-          paddingRight: 48,
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            width: '100%',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              maxWidth: 500,
-            }}
-          >
+      <div className={styles.container}>
+        <div className={styles.row}>
+          <div className={styles.imageContainer}>
             <ImageFadeInOut src={colorOptions.imageUrl} />
           </div>
           <div ref={smartPhoneInfoRef}>

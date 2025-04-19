@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import styles from '../CSS.modules/ImageFadeInOut.module.css';
+import { set } from 'lodash';
 
 interface ImageFadeInOutProps {
   src: string;
@@ -6,13 +8,19 @@ interface ImageFadeInOutProps {
 
 export const ImageFadeInOut = ({ src }: ImageFadeInOutProps) => {
   return (
-    <img
-      src={src}
-      alt=""
-      style={{
-        maxWidth: '100%', // La imagen no excederá el ancho del contenedor
-        height: 'auto', // Mantiene la proporción de la imagen
-      }}
-    />
+    <div style={{ position: 'relative', width: 500, height: 500 }}>
+      <img
+        src={src}
+        key={src}
+        alt=""
+        className={styles.ImageFadeInOutContainer}
+      />
+      <img
+        src={src}
+        key={src}
+        alt=""
+        className={styles.ImageFadeInOutContainer2}
+      />
+    </div>
   );
 };
