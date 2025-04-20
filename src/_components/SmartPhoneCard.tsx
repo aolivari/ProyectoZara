@@ -44,7 +44,7 @@ export const SmartPhoneCard = ({
   const router = useRouter();
 
   const handleClick = () => {
-    //codificar name para evitar problemas con caracteres especiales en la URL,
+    // Encode name to avoid issues with special characters in the URL
     const encodedName = encodeURIComponent(id);
     router.push(`/details/${encodedName}`);
   };

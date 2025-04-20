@@ -12,6 +12,24 @@ interface SmartPhoneInfoProps {
   handleStorageOptions: (index: number) => void;
 }
 
+/**
+ * A React functional component that displays information about a smartphone,
+ * including its price, name, available storage options, and color options.
+ * It allows users to select a storage option and a color option through
+ * interactive UI elements.
+ *
+ * @param {SmartPhoneInfoProps} props - The properties passed to the component.
+ * @param {number} props.price - The price of the smartphone.
+ * @param {string} props.name - The name of the smartphone.
+ * @param {string[]} props.storages - An array of available storage options for the smartphone.
+ * @param {Array<{ name: string; hexCode: string }>} props.colorOptions - An array of color options,
+ * each containing a name and a hexadecimal color code.
+ * @param {function} props.handleColorOptions - A callback function to handle the selection of a color option.
+ * @param {function} props.handleStorageOptions - A callback function to handle the selection of a storage option.
+ * @param {number} props.selectedStorage - The index of the currently selected storage option.
+ *
+ * @returns {JSX.Element} The rendered component displaying smartphone information and interactive options.
+ */
 export const SmartPhoneInfo = ({
   price,
   name,

@@ -33,7 +33,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 const SmartphoneDetails = (data: {
   smartphoneDetail: SmartPhoneDetailsResponse;
 }) => {
-  console.log(data.smartphoneDetail);
   return <SmartPhoneDetails data={data.smartphoneDetail} />;
 };
 export default SmartphoneDetails;

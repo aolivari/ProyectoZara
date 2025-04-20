@@ -14,7 +14,7 @@ export const apiSmartPhone = {
     search,
   }: FetchSmartPhoneData): Promise<SmartPhoneData[]> => {
     baseUrl.pathname = path;
-    baseUrl.searchParams.set('limit', '20'); // Limitar a 20 resultados por defecto
+    baseUrl.searchParams.set('limit', '20'); // Limit to 20 results by default
 
     if (search !== undefined) {
       baseUrl.searchParams.set('search', search);
@@ -37,7 +37,7 @@ export const apiSmartPhone = {
   fetchSmartPhoneDataDetails: async ({
     path,
   }: FetchSmartPhoneData): Promise<SmartPhoneDetailsResponse> => {
-    baseUrl.pathname = `products/${path}`; // Cambia la ruta según sea necesario
+    baseUrl.pathname = `products/${path}`;
 
     try {
       const response = await fetch(baseUrl.href, {

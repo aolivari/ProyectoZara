@@ -13,15 +13,15 @@ export const useGetSmartPhoneList = (path: string) => {
     () =>
       debounce((value: string | undefined) => {
         setDebouncedSearchData(value);
-      }, 300), // 300ms de retraso
+      }, 300), // 300ms delay
     []
   );
 
   useEffect(() => {
-    // Llamar a la función debounced cada vez que searchData cambie
+    // Call the debounced function every time searchData changes
     debouncedSetSearchData(searchData);
 
-    // Limpiar el debounce al desmontar el componente
+    // Clean up the debounce on component unmount
     return () => {
       debouncedSetSearchData.cancel();
     };

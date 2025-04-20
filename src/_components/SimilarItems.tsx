@@ -49,7 +49,7 @@ export const SimilarItems = ({ smartPhones }: SimilarItemsProps) => {
     if (!isDragging) return;
     event.preventDefault();
     const x = event.pageX - (containerRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2; // Velocidad del desplazamiento
+    const walk = (x - startX) * 2; // scroll speed
     if (containerRef.current) {
       containerRef.current.scrollLeft = scrollLeft - walk;
     }

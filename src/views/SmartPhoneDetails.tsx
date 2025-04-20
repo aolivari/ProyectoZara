@@ -13,6 +13,26 @@ interface SmartPhoneDetailsProps {
   data: SmartPhoneDetailsResponse;
 }
 
+/**
+ * Component that displays detailed information about a smartphone, including
+ * its images, specifications, storage options, and color options. It also
+ * provides functionality to select storage and color options, and add the
+ * smartphone to the cart.
+ *
+ * @param {SmartPhoneDetailsProps} props - The props for the component.
+ * @param {Object} props.data - The data object containing smartphone details.
+ * @param {string} props.data.name - The name of the smartphone.
+ * @param {string} props.data.brand - The brand of the smartphone.
+ * @param {string} props.data.description - A description of the smartphone.
+ * @param {Array<{ capacity: string; price: number }>} props.data.storageOptions -
+ *   The available storage options for the smartphone, each with a capacity and price.
+ * @param {Array<{ imageUrl: string }>} props.data.colorOptions -
+ *   The available color options for the smartphone, each with an image URL.
+ * @param {Array<Object>} props.data.specs - The specifications of the smartphone.
+ * @param {Array<Object>} props.data.similarProducts - A list of similar products.
+ *
+ * @returns {JSX.Element} The rendered SmartPhoneDetails component.
+ */
 export const SmartPhoneDetails = ({ data }: SmartPhoneDetailsProps) => {
   const [colorOptions, setColorOptions] = useState(data.colorOptions[0]);
   const [price, setPrice] = useState<string>();
@@ -75,7 +95,7 @@ export const SmartPhoneDetails = ({ data }: SmartPhoneDetailsProps) => {
         </div>
         <div
           style={{
-            marginTop: 24, // Espaciado entre las filas
+            marginTop: 24,
             width: '100%',
           }}
         >

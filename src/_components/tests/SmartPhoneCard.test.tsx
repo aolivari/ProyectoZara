@@ -40,7 +40,7 @@ jest.mock('next/image', () => ({
       React.ClassAttributes<HTMLImageElement> &
       React.ImgHTMLAttributes<HTMLImageElement>
   ) => {
-    // Excluye la propiedad `onLoadingComplete` del elemento <img>
+    // Excludes the `onLoadingComplete` property from the <img> element
     const { onLoadingComplete, ...rest } =
       props as React.ImgHTMLAttributes<HTMLImageElement> & {
         onLoadingComplete?: (img: HTMLImageElement) => void;
@@ -50,7 +50,7 @@ jest.mock('next/image', () => ({
         {...rest}
         onLoad={() => {
           if (onLoadingComplete) {
-            onLoadingComplete({} as HTMLImageElement); // Llama a onLoadingComplete
+            onLoadingComplete({} as HTMLImageElement); // Calls onLoadingComplete
           }
         }}
       />
@@ -66,10 +66,10 @@ describe('SmartPhoneCard Component', () => {
     imageSrc: '/images/image.png',
   };
 
-  it('emule the image has been loaded', () => {
+  it('emulates the image has been loaded', () => {
     render(<SmartPhoneCard id={''} {...mockProps} />);
 
-    // Simula que la imagen se ha cargado
+    // Simulates that the image has been loaded
     const image = screen.getByAltText(`${mockProps.brand} ${mockProps.name}`);
     image.dispatchEvent(new Event('load'));
   });
@@ -77,7 +77,7 @@ describe('SmartPhoneCard Component', () => {
   it('renders the image with the correct alt text', () => {
     render(<SmartPhoneCard id={'prueba'} {...mockProps} />);
 
-    // Verifica que la imagen tenga el alt correcto
+    // Verifies that the image has the correct alt text
     const image = screen.getByAltText(`${mockProps.brand} ${mockProps.name}`);
     expect(image).toBeInTheDocument();
     expect(image).toHaveAttribute('src', mockProps.imageSrc);
@@ -86,13 +86,13 @@ describe('SmartPhoneCard Component', () => {
   it('renders the brand only after the image is loaded', async () => {
     render(<SmartPhoneCard id={'prueba'} {...mockProps} />);
 
-    // Encuentra la imagen por su alt
+    // Finds the image by its alt text
     const image = screen.getByAltText(`${mockProps.brand} ${mockProps.name}`);
 
-    // Simula el evento de carga
+    // Simulates the load event
     image.dispatchEvent(new Event('load'));
 
-    // Espera a que el contenido se renderice después de que la imagen se haya cargado
+    // Waits for the content to render after the image has been loaded
     await waitFor(() => {
       expect(screen.getByText(mockProps.brand)).toBeInTheDocument();
       expect(screen.getByText(mockProps.name)).toBeInTheDocument();
@@ -103,7 +103,7 @@ describe('SmartPhoneCard Component', () => {
   it('does not render the content before the image is loaded', () => {
     render(<SmartPhoneCard id="prueba" {...mockProps} />);
 
-    // Verifica que el contenido no esté presente antes de cargar la imagen
+    // Verifies that the content is not present before the image is loaded
     expect(screen.queryByText(mockProps.brand)).not.toBeInTheDocument();
     expect(screen.queryByText(mockProps.name)).not.toBeInTheDocument();
     expect(screen.queryByText(mockProps.price)).not.toBeInTheDocument();

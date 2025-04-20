@@ -75,7 +75,6 @@ describe('AddCarButton', () => {
     );
 
     const button = screen.getByRole('button', { name: /añadir/i });
-    console.log(button.outerHTML);
     expect(button).toBeDisabled();
   });
 
