@@ -14,7 +14,7 @@ interface BagContextProps {
   clearBag: () => void;
 }
 
-const BagContext = createContext<BagContextProps | undefined>(undefined);
+export const BagContext = createContext<BagContextProps | undefined>(undefined);
 
 export const BagProvider: React.FC<{ children: ReactNode }> = ({
   children,

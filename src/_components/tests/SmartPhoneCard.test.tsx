@@ -67,7 +67,7 @@ describe('SmartPhoneCard Component', () => {
   };
 
   it('emule the image has been loaded', () => {
-    render(<SmartPhoneCard {...mockProps} />);
+    render(<SmartPhoneCard id={''} {...mockProps} />);
 
     // Simula que la imagen se ha cargado
     const image = screen.getByAltText(`${mockProps.brand} ${mockProps.name}`);
@@ -75,7 +75,7 @@ describe('SmartPhoneCard Component', () => {
   });
 
   it('renders the image with the correct alt text', () => {
-    render(<SmartPhoneCard {...mockProps} />);
+    render(<SmartPhoneCard id={'prueba'} {...mockProps} />);
 
     // Verifica que la imagen tenga el alt correcto
     const image = screen.getByAltText(`${mockProps.brand} ${mockProps.name}`);
@@ -84,7 +84,7 @@ describe('SmartPhoneCard Component', () => {
   });
 
   it('renders the brand only after the image is loaded', async () => {
-    render(<SmartPhoneCard {...mockProps} />);
+    render(<SmartPhoneCard id={'prueba'} {...mockProps} />);
 
     // Encuentra la imagen por su alt
     const image = screen.getByAltText(`${mockProps.brand} ${mockProps.name}`);
@@ -101,7 +101,7 @@ describe('SmartPhoneCard Component', () => {
   });
 
   it('does not render the content before the image is loaded', () => {
-    render(<SmartPhoneCard {...mockProps} />);
+    render(<SmartPhoneCard id="prueba" {...mockProps} />);
 
     // Verifica que el contenido no esté presente antes de cargar la imagen
     expect(screen.queryByText(mockProps.brand)).not.toBeInTheDocument();

@@ -1,14 +1,13 @@
 import React, { use, useEffect, useState, useRef } from 'react';
-import { NavBar } from './NavBar'; // Adjust the path if necessary
-import router from 'next/router';
 import { SmartPhoneDetailsResponse, StorageOptions } from '../domain/projec';
-import { ImageFadeInOut } from './ImageFadeInOut';
-import { SmartPhoneInfo } from './SmartPhoneInfo';
-import { AddCarButton } from './AddCarButton';
-import { SmartPhoneSpecs } from './SmartPhoneSpecs';
-import { BackButton } from './BackButton';
-import { SimilarItems } from './SimilarItems';
 import styles from '../CSS.modules/SmartPhoneDetails.module.css';
+import { BackButton } from '../_components/BackButton';
+import { ImageFadeInOut } from '../_components/ImageFadeInOut';
+import { SmartPhoneInfo } from '../_components/SmartPhoneInfo';
+import { AddCarButton } from '../_components/AddCarButton';
+import { SmartPhoneSpecs } from '../_components/SmartPhoneSpecs';
+import { SimilarItems } from '../_components/SimilarItems';
+import { NavBar } from '../_components/NavBar';
 
 interface SmartPhoneDetailsProps {
   data: SmartPhoneDetailsResponse;

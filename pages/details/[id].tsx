@@ -1,10 +1,8 @@
 import { GetServerSideProps } from 'next';
-import { SmartPhoneDetails } from '../../src/_components/SmartPhoneDetails';
 import { SmartPhoneDetailsResponse } from '../../src/domain/projec';
-import { ParsedUrlQuery } from 'querystring';
-import { useGetSmartPhoneDetails } from '../../src/_hooks/useGetSmartPhonedetails';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { apiSmartPhone } from '../../src/services/apiSmartPhone';
+import { SmartPhoneDetails } from '../../src/views/SmartPhoneDetails';
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const queryClient = new QueryClient();

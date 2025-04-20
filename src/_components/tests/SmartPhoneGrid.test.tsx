@@ -18,18 +18,18 @@ jest.mock('../SmartPhoneCard', () => ({
 describe('SmartPhoneGrid Component', () => {
   const mockSmartPhones = [
     {
-      id: 1,
+      id: '67890',
       brand: 'Samsung',
-      model: 'Galaxy S21',
-      price: 799,
-      imageSrc: '/images/s21.png',
+      name: 'Galaxy S22',
+      basePrice: 799,
+      imageUrl: 'https://example.com/galaxy-s22.jpg',
     },
     {
-      id: 2,
-      brand: 'Apple',
-      model: 'iPhone 13',
-      price: 999,
-      imageSrc: '/images/iphone13.png',
+      id: '67890',
+      brand: 'Samsung',
+      name: 'Galaxy S22',
+      basePrice: 799,
+      imageUrl: 'https://example.com/galaxy-s22.jpg',
     },
   ];
 

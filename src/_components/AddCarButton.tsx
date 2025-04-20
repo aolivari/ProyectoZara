@@ -13,8 +13,8 @@ import { Button } from './Button';
 
 interface AddCarButtonProps {
   data: SmartPhoneDetailsResponse;
-  colorOptions: ColorOptions;
-  storageOptions: StorageOptions;
+  colorOptions: ColorOptions | undefined;
+  storageOptions: StorageOptions | undefined;
 }
 
 /**
@@ -54,10 +54,10 @@ export const AddCarButton = ({
       model: data.name,
       brand: data.brand,
       price: data.basePrice,
-      imageSrc: colorOptions.imageUrl,
-      color: colorOptions.name,
+      imageSrc: colorOptions?.imageUrl ?? '',
+      color: colorOptions?.name ?? '',
       id: data.id,
-      storage: storageOptions.capacity,
+      storage: storageOptions?.capacity ?? '',
     };
 
     addItem(smartphoneToAdd); // Add the product to the shopping bag

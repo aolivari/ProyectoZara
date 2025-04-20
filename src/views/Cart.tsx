@@ -1,10 +1,12 @@
 import React from 'react';
-import { NavBar } from './NavBar';
+
 import { useBag } from '../context/BagContext';
-import { Button } from './Button';
+
 import router from 'next/router';
 import styles from '../CSS.modules/Cart.module.css';
 import { useWindowSize } from '../_hooks/useWindowSize';
+import { NavBar } from '../_components/NavBar';
+import { Button } from '../_components/Button';
 
 export const Cart = () => {
   const { items, removeItem } = useBag();
