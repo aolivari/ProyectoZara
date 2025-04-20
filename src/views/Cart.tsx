@@ -8,6 +8,35 @@ import { useWindowSize } from '../_hooks/useWindowSize';
 import { NavBar } from '../_components/NavBar';
 import { Button } from '../_components/Button';
 
+/**
+ * The `Cart` component represents a shopping cart view for an e-commerce application.
+ * It displays a list of items added to the cart, their details, and the total price.
+ * The component adapts its layout based on the screen size, providing a responsive design
+ * for both mobile and desktop users.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The rendered Cart component.
+ *
+ * @remarks
+ * - Uses the `useBag` hook to retrieve cart items and the `removeItem` function.
+ * - Calculates the total price of items in the cart.
+ * - Adapts the layout for mobile screens (width < 780px) and desktop screens (width > 780px).
+ * - Includes buttons for continuing shopping and initiating payment (currently not functional).
+ *
+ * @example
+ * ```tsx
+ * import { Cart } from './Cart';
+ *
+ * const App = () => {
+ *   return (
+ *     <div>
+ *       <Cart />
+ *     </div>
+ *   );
+ * };
+ * ```
+ */
 export const Cart = () => {
   const { items, removeItem } = useBag();
 

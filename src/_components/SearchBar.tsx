@@ -8,6 +8,17 @@ interface SearchBarProps {
   clearSearch: () => void;
 }
 
+/**
+ * A functional component that renders a search bar with an input field and a results count.
+ * 
+ * @param {Object} props - The props for the SearchBar component.
+ * @param {(value: string) => void} props.onSearch - Callback function triggered when the input value changes.
+ * @param {number} props.resultsCount - The number of search results to display.
+ * @param {string} props.value - The current value of the search input.
+ * @param {() => void} props.clearSearch - Callback function to clear the search input.
+ * 
+ * @returns {JSX.Element} The rendered search bar component.
+ */
 export const SearchBar = ({
   onSearch,
   resultsCount,

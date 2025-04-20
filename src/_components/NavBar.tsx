@@ -6,6 +6,25 @@ import styles from '../CSS.modules/NavBar.module.css';
 interface NavBarProps {
   showCar?: boolean;
 }
+/**
+ * NavBar component that displays a navigation bar with a home button and an optional shopping bag icon.
+ *
+ * @param {NavBarProps} props - The properties for the NavBar component.
+ * @param {boolean} [props.showCar=true] - Determines whether the shopping bag icon is displayed.
+ *
+ * @returns {JSX.Element} The rendered NavBar component.
+ *
+ * @remarks
+ * - The home button redirects the user to the home page (`/`) when clicked.
+ * - If `showCar` is true, a shopping bag icon is displayed. Clicking the bag icon:
+ *   - Alerts the user if the bag is empty.
+ *   - Redirects to the cart page (`/cart`) if there are items in the bag.
+ *
+ * @example
+ * ```tsx
+ * <NavBar showCar={true} />
+ * ```
+ */
 export const NavBar = ({ showCar = true }: NavBarProps) => {
   const { items } = useBag();
 
