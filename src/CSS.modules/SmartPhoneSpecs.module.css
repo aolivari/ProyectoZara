@@ -1,0 +1,32 @@
+.specs {
+  font-family: 'Helvetica Neue';
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.specs h1 {
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+}
+
+.upperLetter {
+  text-transform: uppercase;
+}
+
+.specs table {
+  border-collapse: collapse; /* Asegura que los bordes no se dupliquen */
+}
+
+.specs table tr {
+  border-bottom: 1px solid black;
+}
+
+.specs table td,
+.specs table th {
+  border-bottom: 1px solid black; /* Bordes entre celdas */
+  border-top: 1px solid black; /* Bordes entre celdas */
+  padding: 16px 0px; /* Espaciado interno */
+}

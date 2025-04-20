@@ -1,0 +1,13 @@
+.backButton {
+  font-family: 'Helvetica Neue';
+  font-weight: 300;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding-left: 48px;
+  color: rgba(0, 0, 0, 1);
+  text-transform: uppercase;
+}

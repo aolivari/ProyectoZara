@@ -1,0 +1,41 @@
+.searchBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 48px 40px 48px;
+}
+
+.searchBar input {
+  font-family: 'Helvetica neue';
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+  font-weight: 300;
+  width: 100%;
+}
+
+.searchBar p {
+  width: 100%;
+  text-align: left;
+  font-family: 'Helvetica neue';
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #000001;
+}
+.searchBar span {
+  font-family: 'Helvetica neue';
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: #000001;
+  padding-bottom: 6px;
+  padding-right: 30px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}

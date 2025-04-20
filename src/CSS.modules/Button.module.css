@@ -1,0 +1,30 @@
+.buttonDisabled {
+  background: rgba(243, 242, 242, 1);
+  width: 100%;
+  color: rgba(194, 191, 188, 1);
+  border-color: transparent;
+  margin: 0;
+}
+
+.buttonPrimary {
+  background: rgba(27, 26, 24, 1);
+  width: 100%;
+  color: rgba(255, 255, 255, 1);
+  margin: 0;
+}
+
+.buttonSecondary {
+  background: rgb(252, 251, 251);
+  width: 100%;
+  color: rgb(6, 6, 6);
+  margin: 0;
+}
+
+.buttonText {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 20px 0px;
+  margin: 0;
+}
